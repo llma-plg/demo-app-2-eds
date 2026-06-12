@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Required for correct iframe sizing — AEM section margins inflate shadow body */
+main > div,
+main > .section,
+main > .section:first-of-type {
+  margin: 0;
+}
+main > .section > div {
+  max-width: none;
+  padding: 0;
+}
+body {
+  overflow: auto;
+}
+
+main .list-models {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  padding: 8px;
+  max-width: 780px;
+}
+
+main .list-models .carousel-wrapper {
+  position: relative;
+}
+
+main .list-models .carousel-container {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+main .list-models .carousel-container::-webkit-scrollbar {
+  display: none;
+}
+
+main .list-models .carousel-card {
+  flex: 0 0 220px;
+  height: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  scroll-snap-align: start;
+  box-sizing: border-box;
+}
+
+main .list-models .card-image {
+  flex: 6;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+
+main .list-models .cta-button {
+  position: absolute;
+  bottom: 10px;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 13px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  z-index: 1;
+}
+
+main .list-models .cta-button:hover {
+  opacity: 0.9;
+}
+
+main .list-models .card-content {
+  flex: 4;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+main .list-models .card-name {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+main .list-models .card-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 13px;
+}
+
+main .list-models .card-price {
+  font-weight: 600;
+}
+
+main .list-models .card-badge {
+  background: #2563eb;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+main .list-models .carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 14px;
+  cursor: pointer;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+
+main .list-models .carousel-arrow:hover {
+  background: rgba(255, 255, 255, 1);
+}
+
+main .list-models .carousel-arrow:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+main .list-models .carousel-arrow-left {
+  left: 8px;
+}
+
+main .list-models .carousel-arrow-right {
+  right: 8px;
+}
+
+/* Dark mode — dim outer widget background only */
+@media (prefers-color-scheme: dark) {
+  main .list-models {
+    background: #111;
+  }
+  main .list-models .carousel-arrow {
+    background: rgba(30, 30, 30, 0.9);
+    color: #fff;
+  }
+  main .list-models .carousel-arrow:hover {
+    background: rgba(30, 30, 30, 1);
+  }
+}
+
+body.dark main .list-models {
+  background: #111;
+}
+
+body.dark main .list-models .carousel-arrow {
+  background: rgba(30, 30, 30, 0.9);
+  color: #fff;
+}
+
+body.dark main .list-models .carousel-arrow:hover {
+  background: rgba(30, 30, 30, 1);
+}
