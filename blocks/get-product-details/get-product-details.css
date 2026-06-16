@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Required for correct iframe sizing — AEM section margins inflate shadow body */
+main > div,
+main > .section,
+main > .section:first-of-type {
+  margin: 0;
+}
+
+main > .section > div {
+  max-width: none;
+  padding: 0;
+}
+
+body {
+  overflow: auto;
+}
+
+main .get-product-details {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-detail-card {
+  display: flex;
+  flex-direction: row;
+  max-height: 280px;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Left: Image section */
+.image-section {
+  position: relative;
+  width: 260px;
+  flex-shrink: 0;
+  background: #1a1a1a;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* CTA button on image */
+.cta-button {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffd400;
+  color: #000;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 24px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  z-index: 10;
+}
+
+.cta-button:hover {
+  opacity: 0.9;
+}
+
+.cta-button:focus-visible {
+  outline: 2px solid #ffd400;
+  outline-offset: 2px;
+}
+
+/* Right: Content section — palette background set inline in JS */
+.content-section {
+  flex: 1;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto;
+}
+
+.brand {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.85;
+}
+
+.product-name {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.product-description {
+  font-size: 13px;
+  line-height: 1.4;
+  margin: 0;
+  opacity: 0.78;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-price {
+  font-size: 15px;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.category-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.15);
+  color: inherit;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  margin-top: 4px;
+  align-self: flex-start;
+}
+
+/* Mobile responsive */
+@media (max-width: 480px) {
+  .product-detail-card {
+    flex-direction: column;
+    max-height: none;
+  }
+
+  .image-section {
+    width: 100%;
+    height: 200px;
+  }
+
+  .content-section {
+    max-height: none;
+  }
+}
+
+/* Dark mode — dim outer widget background only */
+@media (prefers-color-scheme: dark) {
+  main .get-product-details {
+    background: #111;
+  }
+}
+
+body.dark main .get-product-details {
+  background: #111;
+}
