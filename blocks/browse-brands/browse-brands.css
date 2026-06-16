@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Required for correct iframe sizing */
+main > div,
+main > .section,
+main > .section:first-of-type {
+  margin: 0;
+}
+main > .section > div {
+  max-width: none;
+  padding: 0;
+}
+body {
+  overflow: auto;
+}
+
+main .browse-brands {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  padding: 8px;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+main .browse-brands .brands-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+main .browse-brands .brands-carousel {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 4px;
+}
+
+main .browse-brands .brands-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+main .browse-brands .brand-card {
+  flex: 0 0 220px;
+  min-height: 280px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  scroll-snap-align: start;
+  box-sizing: border-box;
+  position: relative;
+}
+
+main .browse-brands .brand-content {
+  padding: 14px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+main .browse-brands .brand-name {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: inherit;
+}
+
+main .browse-brands .brand-description {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.4;
+  opacity: 0.78;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+  color: inherit;
+}
+
+main .browse-brands .brand-category {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 12px;
+  background: #ffd400;
+  color: #000;
+  align-self: flex-start;
+}
+
+main .browse-brands .brand-cta {
+  margin: 0 14px 14px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 13px;
+  background: #ffd400;
+  color: #000;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  font-family: inherit;
+}
+
+main .browse-brands .brand-cta:hover {
+  opacity: 0.85;
+}
+
+main .browse-brands .brand-cta:focus-visible {
+  outline: 2px solid #ffd400;
+  outline-offset: 2px;
+}
+
+main .browse-brands .carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.95);
+  color: #000;
+  font-size: 14px;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transition: background 0.15s;
+}
+
+main .browse-brands .carousel-arrow:hover {
+  background: #fff;
+}
+
+main .browse-brands .carousel-arrow:focus-visible {
+  outline: 2px solid #ffd400;
+  outline-offset: 2px;
+}
+
+main .browse-brands .carousel-arrow-left {
+  left: -8px;
+}
+
+main .browse-brands .carousel-arrow-right {
+  right: -8px;
+}
+
+main .browse-brands .carousel-fade {
+  z-index: 5;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  main .browse-brands {
+    background: transparent;
+  }
+  main .browse-brands .carousel-arrow {
+    background: rgba(60, 60, 60, 0.95);
+    color: #fff;
+  }
+  main .browse-brands .carousel-arrow:hover {
+    background: #3c3c3c;
+  }
+}
+
+body.dark main .browse-brands {
+  background: transparent;
+}
+
+body.dark main .browse-brands .carousel-arrow {
+  background: rgba(60, 60, 60, 0.95);
+  color: #fff;
+}
+
+body.dark main .browse-brands .carousel-arrow:hover {
+  background: #3c3c3c;
+}
